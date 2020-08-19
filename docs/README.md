@@ -21,5 +21,5 @@ Create a Weather Dashboard that let a user serach for a city's current weather a
 
 ## URLs
 
-GitHub: 
-Website: 
+GitHub: https://github.com/tuanasaurus/weatherDashboard
+Website: https://tuanasaurus.github.io/weatherDashboard/
