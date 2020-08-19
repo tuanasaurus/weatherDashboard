@@ -15,20 +15,39 @@
 </head>
 <body>
     <div class="jumbotron jumbotron-fluid">
-        <div class="container">
+        <div class="container-fluid text-center">
           <h1 class="display-4">Weather Dashboard</h1>
           <p class="lead">Get the weather information for a city before you travel. Wear a mask!</p>
         </div>
     </div>
-
-    <div class="search row col">
-        <form>
-            <div class="form-group">
-                <label for="city">Search for a city:</label>
-                <input type="city" class="form-control">
+    
+<!-- Content Area -->
+    <div class="container">
+        <div class="clearfix">
+            <div class="col-4 float-left">
+                <nav class="navbar navbar-light bg-light shadow-sm p-3 mb-5 bg-white rounded">
+                    <h4>Search for a City:</h4>
+                        <form class="form-inline">
+                            <input id="city-input" class="form-control mr-sm-2" type="search" placeholder="Search">
+                            <button id="select-city" class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    <form id="searchHistory" class="mt-1"></form>
+<!-- Search History section -->
+                </nav>
             </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+            <div class="col-8 float-right">
+                <div class="card bg-light text-dark p-2 rem shadow-sm p-3 mb-5 bg-white rounded" style="width: 710; height: 19rem;">
+                    <div id="current"></div>
+<!-- Current Weather -->
+                    <div id="uvl-display"></div>
+                </div>
+                    <br>
+                    <h2>5-Day Forcast:</h2>
+<!-- 5 Day forecast -->
+                <div  id="5day" class="row">
+                </div>
+            </div> 
+        </div>
     </div>
 
 

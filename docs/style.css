@@ -1,10 +1,8 @@
-.container{
-    text-align: center;
-    color: blueviolet;
+.search{
+    margin-top: 20px;
+    margin-left: 100px;
 }
 
-.search{
-    text-align: center;
-    margin-top: 100px;
-    margin-left: 100px;
+.btn{
+    margin-top: 20px;
 }
