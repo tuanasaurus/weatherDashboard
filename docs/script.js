@@ -108,23 +108,24 @@ function searchCity(cityname){
         });    
 }
 
-
 // Event handler for the city being search for
 $("#select-city").on("click", function(event){
     event.preventDefault();
     const cityInput = $("#city-input").val().trim();
     const textContent = $(this).siblings("input").val();
-    const storeArr = [];
-    storeArr.push(textContent);
-    localStorage.setItem("cityName", JSON.stringify(storeArr));
-    searchCity(cityInput);
-    pageContent();
+    // Added the if statement to prevent the user from adding a blank search
+    if (textContent !== ""){
+        let storeArr = localStorage.getItem("cityName") ? JSON.parse(localStorage.getItem("cityName")) : [];
+        storeArr.push(textContent);
+        localStorage.setItem("cityName", JSON.stringify(storeArr));
+        searchCity(cityInput);
+        pageContent(textContent);
+    }
 });
 
 // Function for grabbing the last search item from local storage
-function pageContent(){
-    const lastSearch = JSON.parse(localStorage.getItem("cityName"));
-    const lastSearchBtn = $("<button class='btn border text-muted mt=1 shadow-sm bg-grey rounder' style='width: 16rem;'>").text(lastSearch);
+function pageContent(textContent){
+    const lastSearchBtn = $("<button class='btn border text-muted mt=1 shadow-sm bg-grey rounder' style='width: 16rem;'>").text(textContent);
     const lastSearchDiv = $("<div>");
     lastSearchDiv.append(lastSearchBtn)
     $("#searchHistory").prepend(lastSearchDiv);
@@ -134,5 +135,13 @@ $("#searchHistory").on("click", ".btn", function(event){
     event.preventDefault();
     searchCity($(this).text());
 });
+
+//Function to display the city we already looked up that was stored in local storage with a closure to be call immediately
+(function savedCity(){
+    const savedCityName = localStorage.getItem("cityName") ? JSON.parse(localStorage.getItem("cityName")) : [];
+    for (var i = 0; i < savedCityName.length; i++){
+        pageContent(savedCityName[i]);
+    };
+})();
 
 })

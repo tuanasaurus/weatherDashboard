@@ -17,7 +17,7 @@ Create a Weather Dashboard that let a user serach for a city's current weather a
 
 ## Layout 
 
-![Weather Dashboard Layout](./assets.weatherDashboard_layout.png)
+![Weather Dashboard Layout](/assets.weatherDashboard_layout.png)
 
 ## URLs
 
